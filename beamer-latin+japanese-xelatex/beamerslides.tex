@@ -1,0 +1,85 @@
+
+% XeLaTeX + LaTeX Beamer
+% For mainly Latin text intermixed with Japanese scripts
+
+\documentclass[aspectratio=43]{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}
+\setCJKmainfont{Hiragino Kaku Gothic Pro}
+\setCJKmonofont{Hiragino Kaku Gothic Pro}
+\setmainfont[Ligatures={Common,TeX},Numbers={Proportional},Kerning={On},Microtype]%
+  {Myriad Pro}
+\setsansfont[Ligatures={Common,TeX},Numbers={Proportional},Kerning={On},Microtype]%
+  {Myriad Pro}
+\setmonofont[Ligatures={TeX},Microtype]%
+  {Inconsolata}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Language
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=old,latesthyphen=true,babelshorthands=true]%
+  {german}
+%\setdefaultlanguage[variant=british]{english}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usecolortheme[light,accent=green]{solarized}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamercovered{still covered={\opaqueness<1->{65}},again covered={\opaqueness<1->{65}}} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Util
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xspace,units,ulem,tabularx,array,booktabs}
+% Fußnotentext ohne Referenz
+\makeatletter
+\def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+\makeatother
+% Solarized Farbschema
+\definecolor{solyellow}{HTML}{B58900}
+\definecolor{solorange}{HTML}{CB4B16}
+\definecolor{solred}{HTML}{DC322F}
+\definecolor{solmagenta}{HTML}{D33682}
+\definecolor{solviolet}{HTML}{6C71C4}
+\definecolor{solblue}{HTML}{268BD2}
+\definecolor{solcyan}{HTML}{2AA198}
+\definecolor{solgreen}{HTML}{859900}
+\hypersetup{colorlinks=true,urlcolor={solblue}}
+% \mycname will always hold the name of the current \section
+\usepackage{zref-titleref}
+\makeatletter
+\newcommand*{\mycname}{\zref@titleref@current}
+\makeatother
+\newcommand{\also}{$\longrightarrow$\xspace}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Dies ist der Haupttitel}
+\subtitle{Und hier ein griffiger Untertitel}
+\institute{Die ehrenwerte Alma Mater}
+\author{Der Autor\\der.autor@zuhause.de}
+\date{\today}
+\frame[plain]{\maketitle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inhalt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
