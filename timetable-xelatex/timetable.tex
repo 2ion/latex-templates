@@ -1,0 +1,111 @@
+% XeLaTeX
+\documentclass[11pt]{article}
+
+\usepackage[margin=1cm,landscape,a4paper]{geometry}
+
+\usepackage{mathspec}
+\usepackage{xeCJK}
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}
+\setCJKmainfont[Scale=0.9]{Hiragino Kaku Gothic Pro}
+\setCJKmonofont{Hiragino Kaku Gothic Pro}
+\setallmainfonts[Ligatures={Common,TeX},Numbers={Lining,Monospaced},Kerning={On},Microtype]%
+  {Ubuntu}
+\setsansfont[Ligatures={Common,TeX},Numbers={Lining,Monospaced},Kerning={On},Microtype]%
+  {Clear Sans}
+\setmathfont[Ligatures={Common,TeX},Numbers={Lining,Monospaced},Kerning={On},Microtype]%
+  {Clear Sans}
+\setmonofont[Ligatures={TeX},Microtype]%
+  {Inconsolata}
+
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{ruby}
+\usepackage{xspace}
+\usepackage{units}
+\usepackage{ulem}
+\usepackage{tabularx,array,booktabs}
+% expose \cellwidth
+\makeatletter
+\newcommand\cellwidth{\TX@col@width}
+\makeatother
+\usepackage{multirow}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{dcolumn}
+
+\makeatletter
+\def\blfootnote{\xdef\@thefnmark{}\@footnotetext}
+\makeatother
+
+\definecolor{solyellow}{HTML}{B58900}
+\definecolor{solorange}{HTML}{CB4B16}
+\definecolor{solred}{HTML}{DC322F}
+\definecolor{solmagenta}{HTML}{D33682}
+\definecolor{solviolet}{HTML}{6C71C4}
+\definecolor{solblue}{HTML}{268BD2}
+\definecolor{solcyan}{HTML}{2AA198}
+\definecolor{solgreen}{HTML}{859900}
+\input{tokyocolors}
+
+\usepackage{tikz}
+\usetikzlibrary{fit}
+
+\usepackage{zref-titleref}
+\makeatletter
+\newcommand*{\mycname}{\zref@titleref@current}
+\makeatother
+\newcommand{\also}{$\longrightarrow$\xspace}
+
+\newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+
+\newcommand{\daycolor}{solred}
+\newcommand{\classcolor}{tokyoblue}
+\newcommand{\formatday}[1]{{\addCJKfontfeature{Color=\daycolor}\textbf{\LARGE #1}}}
+\newcommand\addvmargin[1]{
+  \node[fit=(current bounding box),inner ysep=#1,inner xsep=0]{};
+}
+% RSPAN-TITLE-INSTRUCTOR-LOCATION
+\newcommand{\CLASS}[4]{%
+  \multirow{#1}{*}{%
+    \renewcommand{\arraystretch}{1}
+    %\setlength{\extrarowheight}{-2pt}
+    \begin{tabular}[t]{@{}lr@{}}
+      \toprule%
+      \multicolumn{2}{c}{{\addfontfeature{Color=\classcolor}\addCJKfontfeature{Color=\classcolor}\small#2}}\\
+      {\footnotesize#3}&{\footnotesize#4}\\\bottomrule
+    \end{tabular}
+  }%
+}
+
+\pagestyle{empty}
+
+\begin{document}
+\begin{center}
+  \Huge\bfseries\addCJKfontfeature{Scale=1.1,Color=tokyogreen}時刻表\\[.6ex]
+  \large\addCJKfontfeature{Scale=0.9,Color=black}春学期\addfontfeature{Color=black}2014
+\end{center}
+
+\vspace*{.6cm}
+
+%\setlength{\extrarowheight}{4pt}
+\renewcommand{\arraystretch}{2}
+
+\noindent\begin{tabularx}{\textwidth}{D{.}{.}{1.2}YYYYYYY}
+  \toprule%
+  ·       & \formatday{月}    &   \formatday{火}  &  \formatday{水}                             & \formatday{木}                            & \formatday{金}  & \formatday{土}\\\otoprule%
+  8.50    & a921              & b                 &  \CLASS{2}{JLP 8}{田中~和美}{H 356}          & \CLASS{2}{JLP 8}{田中~和美}{H 356}        & d    & f\\
+  10.10   & a921              & b                 &                                             &                                           & e   & f\\
+  11.30   & a921              & b                 & c   & d   & e   & f\\%
+  13.15   & a921              & b                 & c   & d   & e   & f\\%
+  13.50   & a921              & b                 & c   & d   & e   & f\\%
+  15.10   & a921              & b                 &  \CLASS{2}{International Organization I}{新垣~修}{H 104}                            & d   & e   & f\\%
+  16.30   & a921              & b                 &     & d   & e   & f\\%
+  17.50   & a921              & b                 & c   & d   & e   & f\\%
+  19.10   & a                 & b                 & c   & d   & e   & f\\\bottomrule%
+\end{tabularx}
+
+\vspace*{\fill}
+
+\end{document}
+
