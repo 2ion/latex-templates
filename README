@@ -1,6 +1,0 @@
-latex-templates
-===============
-
-This repository hosts LaTeX templates for various TeX engines. Each
-template comes with a Makefile based on latex-mk. Each template should
-compile with TeX Live 2013 or later.

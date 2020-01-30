@@ -1,0 +1,235 @@
+\documentclass[article, a4paper, oneside, 12pt, toc=listof]{memoir}
+
+%{{{ Common packages
+
+\usepackage{xspace}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[normalem]{ulem}
+
+\newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
+
+%}}}
+
+%{{{ Font and typography
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% utf8x-Ersatz
+\DeclareUnicodeCharacter{014C}{\={O}}
+\DeclareUnicodeCharacter{014D}{\={o}}
+\DeclareUnicodeCharacter{016A}{\={U}}
+\DeclareUnicodeCharacter{016B}{\={u}}
+\DeclareUnicodeCharacter{0100}{\={A}}
+\DeclareUnicodeCharacter{0101}{\={a}}
+\DeclareUnicodeCharacter{0112}{\={E}}
+\DeclareUnicodeCharacter{0113}{\={e}}
+\DeclareUnicodeCharacter{012A}{\={I}}
+\DeclareUnicodeCharacter{012B}{\={i}}
+
+% Symbole
+\usepackage{kpfonts}
+\usepackage{lmodern}
+% Libertine, Biolinum
+\usepackage{libertine}
+% Monospaced
+\usepackage[scaled=0.85]{beramono}
+
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+
+\usepackage[expansion=true,kerning=true,spacing=true,tracking=true,babel]{microtype}
+
+%}}}
+
+%{{{ PDF
+
+\pdfcompresslevel=9
+\pdfobjcompresslevel=3
+
+\usepackage{hyperref}
+\hypersetup{
+  hidelinks,
+  pdftitle={Titel},
+  pdfauthor={Autor}
+}
+
+%}}}
+
+%{{{ ToC and section styles
+
+\renewcommand*{\chaptitlefont}{\Large\sffamily\bfseries}
+\setsecheadstyle{\Large\sffamily\bfseries\raggedright}
+\setsecheadstyle{\Large\sffamily\bfseries\raggedright}
+\setsubsecheadstyle{\large\sffamily\bfseries\raggedright}
+\setsubsubsecheadstyle{\sffamily\bfseries\raggedright}
+\renewcommand{\cftchapterfont}{\sffamily\bfseries}
+\renewcommand{\cftsectionfont}{\sffamily\bfseries}
+\renewcommand{\cftsubsectionfont}{\sffamily}
+\renewcommand{\cftbeforesectionskip}{5pt plus 1pt}
+\renewcommand{\cftbeforesubsectionskip}{5pt plus 1pt}
+\renewcommand{\printtoctitle}[1]{\Large\sffamily\bfseries #1}
+
+\renewcommand{\cftchapterpagefont}{\normalfont\sffamily}
+\renewcommand{\cftsectionpagefont}{\normalfont\sffamily}
+\renewcommand{\cftsubsectionpagefont}{\normalfont\sffamily}
+
+\counterwithout{section}{chapter}
+\setsecnumdepth{subsection}
+\settocdepth{subsection}
+
+%}}}
+
+%{{{ Page styles and geometry
+
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+
+\makepagestyle{nullpage}
+\makeoddhead{nullpage}{}{}{}
+\makeoddfoot{nullpage}{}{\thepage}{}
+\makeevenhead{nullpage}{}{}{}
+\makeevenfoot{nullpage}{}{\thepage}{}
+\pagestyle{nullpage}
+
+%}}}
+
+%{{{ BibLaTeX
+
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{\jobname.bib}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+\renewcommand{\postnotedelim}{\addcolon\addspace}
+% $titleaddon nach $title, ohne interferierendes Komma.
+% ACHTUNG: muss für $subtitle erneut angepasst werden!
+\DeclareFieldFormat{titleaddon}{[#1]}
+\renewbibmacro*{title}{%
+  \printtext[title]{%
+    \printfield[titlecase]{title}%
+  }%
+  \addspace%
+  \printfield{titleaddon}%
+  \newunit
+}
+
+%}}}
+
+%{{{ Definitions
+
+\newcommand{\ellipse}{\bibellipsis\xspace}
+
+%}}}
+
+\begin{document}
+
+%{{{ Titelseite
+
+\begin{titlingpage}
+    \vspace*{.2\textheight}
+
+    {\noindent\centering\sffamily\bfseries\LARGE
+      Haupttitel\par}
+
+    \vspace*{.3\baselineskip}
+
+%    {\noindent\centering\rmfamily\Large Untertitel\par}
+
+   \vspace*{.125\textheight}
+
+   {\noindent\centering\rmfamily\large Freie wissenschaftliche Arbeit
+     zur Erlangung eines AKADEMISCHER GRAD\\am Fachbereich FACHBEREICH\\der
+     UNIVERSITÄT\\[2ex] im Studiengang\\{\sffamily\textbf{
+     STUDIENGANG}}\\[4ex]eingereicht von\\\sffamily
+     \textbf{AUTOR}\\\rmfamily (MATRIKELNUMMER)\par}
+
+    \vspace*{\fill}
+
+    \noindent
+    \begin{minipage}[b]{.5\textwidth}
+        \noindent\rmfamily\normalsize
+        Erstprüfer:\\Prof.~Dr.~Max Mustermann
+    \end{minipage}\hfill
+    \begin{minipage}[b]{.5\textwidth}
+       \noindent\flushright\rmfamily\normalsize
+       Zweitprüfer:\\Dr.~Nax Nustermann
+    \end{minipage}
+\end{titlingpage}
+
+\clearpage
+
+%}}}
+
+%{{{ ToC
+
+\pagenumbering{arabic}
+
+\tableofcontents*
+
+
+\clearpage
+
+%}}}
+
+\OnehalfSpacing
+
+\section{Einleitung}
+
+Lorem ipsum.
+
+\section{Zusammenfassung}
+
+Alles wurde bewiesen.\hfill$\blacksquare$
+
+%{{{ Bibliographie
+
+\clearpage
+
+\printbibliography
+
+\clearpage
+
+%}}}
+
+%{{{ Abbildungen und Tabellen
+
+\thispagestyle{chapter}
+\listoffigures
+\listoftables
+\clearpage
+
+%}}}
+
+%{{{ Eidesstattliche Erklärung
+
+\section*{Eidesstattliche Erklärung}
+
+\OnehalfSpacing
+
+\noindent Ich versichere an Eides Statt, dass ich die vorliegende Arbeit
+selbständig ohne fremde Hilfe und nur mit den angegebenen Hilfsmitteln
+verfasst habe.
+
+\vspace*{1ex}
+
+\noindent Ich bin damit einverstanden, dass meine Arbeit mit
+elektronischen Hilfsmitteln auf Plagiate untersucht wird.
+
+\vspace*{2\baselineskip}
+
+{\noindent\raggedright\rule{\textwidth}{.4pt}\\\raggedright Datum\hfill Unterschrift}
+
+%}}}
+
+
+\end{document}

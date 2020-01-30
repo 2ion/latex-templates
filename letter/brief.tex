@@ -1,0 +1,160 @@
+% vim: tw=0
+\documentclass[ version=last,
+                backaddress=on,
+                12pt,
+                a4paper,
+                firstfoot=false,
+                fromrule=false,
+                fromlogo=false,
+                enlargefirstpage=true]{scrlttr2}
+
+\usepackage{relsize,xspace,ulem}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{tabularx,booktabs,array,dcolumn}
+\usepackage[hang,flushmargin]{footmisc}
+\newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
+\newcolumntype{Z}{>{\raggedright\let\newline\\\arraybackslash}X}
+
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}
+\setromanfont[Ligatures={Common,TeX},
+    Numbers={Proportional},
+    Kerning={On}, Microtype]{Minion Pro}
+\setsansfont[Ligatures={Common,TeX},
+    BoldFont={* Semibold},
+    Numbers={Proportional},
+    Kerning={On},Microtype,Scale=0.95]{Myriad Pro}
+\setmonofont{Source Code Pro}
+\newfontfamily{\cjkfontfamily}{Kozuka Gothic Pro}
+\DeclareTextFontCommand{\textcjk}{\cjkfontfamily}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+\usepackage{csquotes}
+
+\setkomavar{fromaddress}{
+    Straße 6\\
+    00000 Ort
+}
+
+\setkomavar{fromemail}{from@nowhere.de}
+\setkomavar{fromname}{Max Muster}
+\setkomavar{backaddress}{Max Muster, Straße 6, 00000 Ort}
+\setkomavar{fromphone}{+49 (0) 1111 2222 3333}
+\setkomavar{fromzipcode}{00000}
+\setkomavar{place}{Ort}
+\KOMAoptions{parskip=half-}
+
+\begin{document}
+
+\pagestyle{headings}
+
+\setlength{\tabcolsep}{12pt}
+
+\setkomavar{subject}{\sffamily Betreffzeile(n)}
+
+\begin{letter}[fromalign=right,fromphone,fromemail]{
+An den\\
+Bundesminister der Finanzen\\
+Herrn Olaf Scholz\\
+Wilhelmstraße 97\\
+10117 Ort
+}
+
+\opening{Sehr geehrter Herr Scholz,}
+
+% source: https://www.dsw-info.de/steuerirrsinn/
+
+ich schreibe Ihnen heute, nachdem Sie in den letzten Wochen wiederholt über
+    vorgeschlagene oder auch bereits beschlossene Maßnahmen die
+    eigenverantwortliche Altersvorsorge und das langfristige Anlegen in
+    Wertpapieren mit verschiedenen Entscheidungen belastet und torpediert
+    haben.
+
+Die Bundesregierung und auch Ihr Haus haben bisher keinerlei Maßnahmen
+    ergriffen, um die Bundesbürger flächendeckend in Finanzfragen oder
+    hinsichtlich ihrer Altersvorsorge so aufzuklären und zu unterstützen, dass
+    ein selbstorganisierter und nachhaltiger Aufbau einer privaten finanziellen
+    Vorsorge in Deutschland ermöglicht oder gar gefördert wird.
+
+Stattdessen haben Sie durch ganz aktuelle und gezielte Entscheidungen und
+    Vorschläge genau gegensätzliche Impulse gesetzt.
+
+So ist für mich nicht nachvollziehbar, warum Sie ausgerechnet 10 Millionen
+    Bundesbürger, die ihr bereits versteuertes Geld in Wertpapieren anlegen,
+    durch eine Finanztransaktionssteuer, durch die gezielte Beibehaltung des
+    Solidaritätszuschlages und nun auch noch durch die Versagung der
+    steuerlichen Anrechnung von Totalverlusten beschränken und beschneiden
+    wollen.
+
+Damit unterdrücken und belasten Sie die eigenverantwortliche Altersvorsorge,
+    was aufgrund der voraussichtlich noch sehr lange anhaltenden
+    Niedrigzinsphase fatale Folgen haben wird.
+
+In Bezug auf die Finanztransaktionsteuer möchte ich ausdrücklich
+    unterstreichen, dass ich der ursprünglichen Intention als Reaktion auf die
+    Finanzkrise, über eine solche Steuer hochspekulative Finanzgeschäfte sowohl
+    ordnungspolitisch als auch finanzpolitisch zu adressieren, prinzipiell
+    positiv gegenüberstehe. 
+
+Warum aber die von Ihnen vorgesehene FTT ausschließlich Aktionäre und damit
+    Anleger, die der Industrie wichtiges Eigenkapital zur Verfügung stellen,
+    erfasst werden sollen, verschließt sich mir vollkommen. Damit treffen Sie
+    sowohl die falschen Anlageobjekte als auch die falschen Anleger.
+
+Eine Transaktionssteuer wäre überhaupt nur dann sinnvoll, wenn sie sich in ein
+    neues, ausgewogenes System einbettet, das ein langfristiges und der
+    Volkswirtschaft dienendes Zurverfügungstellen von Kapital fördert, indem
+    die langfristige Anlage und Investition entlastet wird. 
+
+So ist auch die Frage zu stellen, warum der Verkauf von Immobilien nach zehn
+    Jahren oder von Gold nach bereits einem Jahr steuerfrei möglich ist, bei
+    Aktien als klassischem Sachwert aber nicht. Hier sollten Sie ansetzen und
+    mindestens einen Gleichlauf herstellen, anstatt Aktionäre und Anleger
+    gezielt mit neuen Steuern zu belasten.
+
+Unabdingbar ist meiner Ansicht nach auch die deutliche Erhöhung des
+    Sparerfreibetrages, um so auch einkommensschwächeren Bürgern und Familien
+    zu ermöglichen, sich angemessen und eigenverantwortlich um ihre
+    Altersvorsorge zu kümmern. 
+
+Auch die isolierte Beibehaltung des Solidaritätszuschlages bei Kapitalerträgen
+ist ein gutes Beispiel für die Diskriminierung von Anlegern. Die
+verfassungsrechtliche Problematik Ihrer diesbezüglichen Vorschläge ist Ihnen
+bewusst und es ist zudem höchst befremdlich, dass Sie damit ausgerechnet die
+Bundesbürger treffen und belasten, die sich für ihre finanzielle Situation und
+Altersvorsorge engagieren.
+
+Ganz aktuell wollen Sie zudem die steuerliche Anrechenbarkeit aufgrund von
+Totalausfällen erlittenen Verlusten ausschließen. Und auch hier treffen Sie
+wieder private, langfristige Anleger von Aktien und Anleihen, die eben nicht
+wie institutionelle Anleger schnell ein sinkendes Schiff verlassen. Mit Ihrem
+Vorschlag zwingen Sie von Totalverlusten bedrohte Anleger, allein aus
+fiskalischen Gründen Verluste zu realisieren, damit diese noch angerechnet
+werden. Dies ist sowohl steuerlich als auch wirtschaftlich vollkommen absurd
+und nicht im Ansatz nachvollziehbar. Auch der BFH vertritt in seinen
+einschlägigen Entscheidungen die gegensätzliche Position. Sie fordern mit Ihrem
+Vorstoß eine erneute gerichtliche Klärung heraus.
+
+Alle drei Maßnahmen treffen normale Anleger - isoliert und in ihrer
+Kombination. Vor diesem Hintergrund fordere ich Sie auf, Ihre Pläne dringend zu
+überdenken und zu prüfen, ob Sie mit Ihren geplanten Maßnahmen
+ordnungspolitisch und auch hinsichtlich Ihrer Verantwortung als Finanzminister
+überhaupt die gewünschten Effekte erreichen können oder nicht vielmehr auch
+rechtlich höchst umstrittene Belastungen und Signale setzen, die
+Eigeninitiative zur Altersvorsorge bereits im Keim ersticken. Das kann und darf
+eigentlich nicht in Ihrem Sinne sein.
+
+
+\closing{Mit freundlichen Grüßen,}
+
+\end{letter}
+
+\end{document}
